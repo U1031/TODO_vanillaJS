@@ -17,3 +17,14 @@ h1{
 	text-rendering: optimizeLegibility;
 }
 */
+.main_todo{
+    display: block;
+}
+
+#all_click{
+    display: none;
+}
+
+.btn_div{
+    display: none;
+}

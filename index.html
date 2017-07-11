@@ -7,22 +7,21 @@
     <body>
         <header>
             <h1>todo</h1>
-            
         </header>
         <div>
-            <button>x</button>
+            <button id = "all_click"></button>
             <input id="input_bar" placeholder="what needs to be done?" autofocus>
         </div>
-        <div>
-            <ul>
-            </ul>
+        <div class="main_todo">
+            <input type="checkbox">
+            <ul class="todo_list"></ul>
         </div>
-        <div>
-            <a>items left</a>
-            <a>All</a>
-            <a>Active</a>
-            <a>Completed</a>
-            <a id="clear_completed">Clear Completed</a>
+        <div class="btn_div">
+            <a id="item_count"></a>
+            <a id="show_all">All</a>
+            <a id="show_active">Active</a>
+            <a id="show_completed">Completed</a>
+            <button id="clear_completed">Clear Completed</button>
         </div>
         <footer>
             Double-click to edit a todo
