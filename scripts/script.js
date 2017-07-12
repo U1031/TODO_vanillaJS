@@ -34,8 +34,36 @@ var active_id_count = 0;
 var completed_id_count = 0;
 
 
+all_click.onclick = function(){
+    var all_or_not = 0;
+    for(var i = 0; i<list_cb.length; i++){
+        if(list_cb[i].checked == true){
+            all_or_not++;
+        }
+    }
+    if(all_or_not == list_cb.length){
+        for(var i = 0; i<list_cb.length; i++){
+            list_cb[i].checked = false;
+        }
+    }else{
+        for(var i = 0; i<list_cb.length; i++){
+            list_cb[i].checked = true;
+        }
+    }
+    
+    for(var i = 0; i<list_cb.length; i++){
+        if(list_cb[i].checked == true){
+            todoStorage[i].completed = true;
+        }else{
+            todoStorage[i].completed = false;
+        }
+    }
+}
+
+
+
+
 clear_completed.onclick = function(){
-    alert(list_cb[1].checked);
     delete_todo();
     alert("clear the completed!");
 }
@@ -53,7 +81,14 @@ input_bar.onkeydown = function(){
             
 
             list_cb[id_num].type = "checkbox";
+            list_cb[id_num].checked = false;
             p[id_num].innerHTML = todoStorage[id_num].title;
+
+            list_cb[id_num].id = "cb"+(id_num+1);
+            p[id_num].id = "p"+(id_num+1);
+
+            list_cb[id_num].class = "cb_cb";
+            p[id_num].class = "p_p";
 
             todo_list.appendChild(list_cb[id_num]);
             todo_list.appendChild(p[id_num]);
@@ -112,10 +147,28 @@ function count_active_completed(){
 
 //Clear Completed 눌렀을때 todoStorage에서 지우는 Function
 function delete_todo(){
+    /*
     for(var i = 0; i < todoStorage.length; i++){
         if(todoStorage[i].completed == true){
             todoStorage[i].title = '';
             todoStorage[i].completed = false;
+
+            todo_list.removeChild(document.getElementById("cb"+(i+1)));
+            todo_list.removeChild(document.getElementById("p"+(i+1)));
+            
+            p.splice(i, 1);
+            list_cb.splice(i, 1);
+        }
+    }*/
+    for(var i = 0; i < list_cb.length; i++){
+        if(list_cb[i].checked == true){
+            todo_list.removeChild(list_cb[i]);
+            todo_list.removeChild(p[i]);
+            
+            /*
+            p.splice(i, 1);
+            list_cb.splice(i, 1);
+            */
         }
     }
 }

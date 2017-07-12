@@ -19,11 +19,6 @@ h1{
 */
 
 
-html,
-body {
-	margin: 0;
-	padding: 0;
-}
 
 body {
 	font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -35,7 +30,7 @@ body {
 	margin: 0 auto;
 	-webkit-font-smoothing: antialiased;
 	-moz-font-smoothing: antialiased;
-	font-smoothing: antialiased;
+	/*font-smoothing: antialiased;*/
 	font-weight: 300;
 }
 .main_todo{
@@ -49,3 +44,41 @@ body {
 .btn_div{
     display: none;
 }
+
+.in-line{
+      width:350px;
+      height:40px;
+    }
+    input{
+      margin:0;
+    }
+    input[type="text"]{
+      width:70%;
+      height:100%;
+      border:none;
+      font-size:1em;
+      padding-left: 5px;
+      font-style: oblique;
+      display:inline;
+      outline:none;
+      box-sizing: border-box;
+      color:black;
+
+    }
+    input[type=button]{
+      width: 30%;
+      height:100%;
+      background-color: lightgray;
+      border:none;
+      background-color: white;
+      font-size:1em;
+      color:#042AaC;
+      outline:none;
+      display:inline;
+      margin-left: -105px;
+      margin-bottom:-39.6px;
+      box-sizing: border-box;
+    }
+    input[type=button]:hover{
+      background-color: lightgray;
+    }
