@@ -12,6 +12,7 @@ var main_todo = document.querySelector('.main_todo');
 
 var list_cb = []
 var todoStorage = []
+var btn_x = []
 
 
 var id_num = 0;
@@ -37,6 +38,7 @@ all_click.onclick = function(){
             list_cb[i].checked = true;
         }
     }
+    count_active_completed();
 }
 
 
@@ -51,6 +53,7 @@ input_bar.onkeydown = function(){
             todoStorage[id_num] = document.createElement('li');
             list_cb[id_num] = document.createElement('input');
             todoTitle = document.createElement('span')
+            btn_x[id_num] = document.createElement('button');
             
             todoStorage[id_num].title = input_bar.value;
             todoStorage[id_num].completed = false;
@@ -68,14 +71,29 @@ input_bar.onkeydown = function(){
             list_cb[id_num].classList = "listcb listcb_"+id_num;
             todoStorage[id_num].classList = "lili lili_"+id_num;
 
+            btn_x[id_num].style.display = "none";
+
+
             list_cb[id_num].addEventListener('click', function(){
                 synchro();
                 count_active_completed();
             })
 
+            todoStorage[id_num].addEventListener('dblclick', function(){
+                alert("hihi");
+            })
+
+            todoStorage[id_num].addEventListener('mouseover', function(){
+                //btn_x[id_num].display = "block";
+            })
+
+            todoStorage[id_num].addEventListener('mouseout', function(){
+            })
+
             todo_list.appendChild(todoStorage[id_num]);
             todoStorage[id_num].appendChild(todoTitle);
             todoStorage[id_num].appendChild(list_cb[id_num]);
+            todoStorage[id_num].appendChild(btn_x[id_num]);
             id_num++;
             count_active_completed();
             block_none();
@@ -158,7 +176,11 @@ function count_active_completed(){
         }
     }
     item_count.innerHTML = active_id_count + " items left";
-
+    if(completed_id_count == 0){
+        clear_completed.style.display = "none";
+    }else{
+        clear_completed.style.display = "block";
+    }
 }
 
 //Clear Completed 눌렀을때 todoStorage에서 지우는 Function
