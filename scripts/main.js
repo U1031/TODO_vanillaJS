@@ -71,23 +71,32 @@ input_bar.onkeydown = function(){
             list_cb[id_num].classList = "listcb listcb_"+id_num;
             todoStorage[id_num].classList = "lili lili_"+id_num;
 
-            btn_x[id_num].style.display = "none";
-
 
             list_cb[id_num].addEventListener('click', function(){
                 synchro();
                 count_active_completed();
             })
 
-            todoStorage[id_num].addEventListener('dblclick', function(){
-                alert("hihi");
+            todoStorage[id_num].addEventListener('dblclick', function(ev){
+                if(ev.target.tagName === 'SPAN'){
+                    alert("hihi");
+                }
             })
 
-            todoStorage[id_num].addEventListener('mouseover', function(){
-                //btn_x[id_num].display = "block";
+            todoStorage[id_num].addEventListener('mouseover', function(ev){
+                if(ev.target.tagName === 'LI'){
+                    ev.target.querySelector('.lili button').classList = "done";
+                }else if(ev.target.tagName === 'SPAN' || 'INPUT'){
+                    ev.target.parentNode.querySelector('.lili button').classList = "done";
+                }
             })
 
-            todoStorage[id_num].addEventListener('mouseout', function(){
+            todoStorage[id_num].addEventListener('mouseout', function(ev){
+                if(ev.target.tagName === 'LI'){
+                    ev.target.querySelector('.lili button').classList = '';
+                }else if(ev.target.tagName === 'SPAN' || 'INPUT'){
+                    ev.target.parentNode.querySelector('.lili button').classList = '';
+                }
             })
 
             todo_list.appendChild(todoStorage[id_num]);
@@ -135,6 +144,7 @@ show_completed.onclick = function(){
         }
     }
     count_active_completed();
+
 
 }
 

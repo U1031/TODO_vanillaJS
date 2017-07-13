@@ -33,6 +33,16 @@ body {
 	/*font-smoothing: antialiased;*/
 	font-weight: 300;
 }
+
+.lili button{
+    display: none;
+}
+
+.lili button.done{
+    display: block;
+}
+
+
 .main_todo{
     display: none;
 }
