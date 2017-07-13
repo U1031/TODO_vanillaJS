@@ -79,7 +79,7 @@ input_bar.onkeydown = function(){
 
             todoStorage[id_num].addEventListener('dblclick', function(ev){
                 if(ev.target.tagName === 'SPAN'){
-                    alert("hihi");
+                    window.alert("double click!");
                 }
             })
 
