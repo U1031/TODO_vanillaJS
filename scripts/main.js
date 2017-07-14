@@ -13,6 +13,8 @@ var main_todo = document.querySelector('.main_todo');
 var list_cb = []
 var todoStorage = []
 var btn_x = []
+var span_input = []
+
 
 
 var id_num = 0;
@@ -54,6 +56,9 @@ input_bar.onkeydown = function(){
             list_cb[id_num] = document.createElement('input');
             todoTitle = document.createElement('span')
             btn_x[id_num] = document.createElement('button');
+            span_input[id_num] = document.createElement('input');
+
+
             
             todoStorage[id_num].title = input_bar.value;
             todoStorage[id_num].completed = false;
@@ -68,8 +73,12 @@ input_bar.onkeydown = function(){
             list_cb[id_num].checked = false;
             list_cb[id_num].id = "cb_"+id_num;
 
+            // span_input[id_num].type = "text";
+
             list_cb[id_num].classList = "listcb listcb_"+id_num;
             todoStorage[id_num].classList = "lili lili_"+id_num;
+            span_input[id_num].classList = "modify modify_"+id_num;
+
 
 
             list_cb[id_num].addEventListener('click', function(){
@@ -79,7 +88,9 @@ input_bar.onkeydown = function(){
 
             todoStorage[id_num].addEventListener('dblclick', function(ev){
                 if(ev.target.tagName === 'SPAN'){
-                    window.alert("double click!");
+                    ev.target.style.display = "none";
+                    (ev.target.parentNode).querySelector('.modify').style.display = "inline";
+                    (ev.target.parentNode).querySelector('.modify').value = ev.target.innerHTML;
                 }
             })
 
@@ -99,9 +110,18 @@ input_bar.onkeydown = function(){
                 }
             })
 
+            todoStorage[id_num].addEventListener('keydown', function(ev){
+                if(ev.keyCode == 13){
+                    (ev.target.parentNode).querySelector('.lili span').innerHTML = ev.target.value;
+                    ev.target.style.display = "none";
+                    (ev.target.parentNode).querySelector('.lili span').style.display = "inline";
+                }
+            })
+
             todo_list.appendChild(todoStorage[id_num]);
             todoStorage[id_num].appendChild(todoTitle);
             todoStorage[id_num].appendChild(list_cb[id_num]);
+            todoStorage[id_num].appendChild(span_input[id_num]);
             todoStorage[id_num].appendChild(btn_x[id_num]);
             id_num++;
             count_active_completed();
