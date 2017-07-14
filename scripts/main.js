@@ -73,8 +73,8 @@ input_bar.onkeydown = function(){
             list_cb[id_num].checked = false;
             list_cb[id_num].id = "cb_"+id_num;
 
-            // span_input[id_num].type = "text";
 
+            btn_x[id_num].classList = "btn btn_"+id_num;
             list_cb[id_num].classList = "listcb listcb_"+id_num;
             todoStorage[id_num].classList = "lili lili_"+id_num;
             span_input[id_num].classList = "modify modify_"+id_num;
@@ -84,6 +84,14 @@ input_bar.onkeydown = function(){
             list_cb[id_num].addEventListener('click', function(){
                 synchro();
                 count_active_completed();
+            })
+
+            btn_x[id_num].addEventListener('click', function(ev){
+                //todo_list.removeChild(ev.target.parentNode);
+                list_cb[ev.target.parentNode.id].checked = true;
+                // synchro();
+                delete_todo();
+                // count_active_completed();
             })
 
             todoStorage[id_num].addEventListener('dblclick', function(ev){
@@ -112,11 +120,15 @@ input_bar.onkeydown = function(){
 
             todoStorage[id_num].addEventListener('keydown', function(ev){
                 if(ev.keyCode == 13){
+                    todoStorage[ev.target.parentNode.id]=ev.target.value;
                     (ev.target.parentNode).querySelector('.lili span').innerHTML = ev.target.value;
                     ev.target.style.display = "none";
                     (ev.target.parentNode).querySelector('.lili span').style.display = "inline";
                 }
             })
+
+
+
 
             todo_list.appendChild(todoStorage[id_num]);
             todoStorage[id_num].appendChild(todoTitle);
