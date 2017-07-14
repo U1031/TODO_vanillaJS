@@ -17,14 +17,18 @@ body {
 	font-weight: 300;
 }
 
+.listcb{
+    background-color: red;
+}
+
 .lili button{
     display: none;
 }
 
 .lili button.done{
-    display: block;
+    display: inline;
     position: relative;
-    top:-15px;
+    /*top:-15px;*/
     right:-100px;
 }
 
