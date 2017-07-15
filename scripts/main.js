@@ -40,6 +40,7 @@ all_click.onclick = function(){
             list_cb[i].checked = true;
         }
     }
+    synchro();
     count_active_completed();
 }
 
@@ -120,10 +121,12 @@ input_bar.onkeydown = function(){
 
             todoStorage[id_num].addEventListener('keydown', function(ev){
                 if(ev.keyCode == 13){
-                    todoStorage[ev.target.parentNode.id]=ev.target.value;
+                    todoStorage[ev.target.parentNode.id].title = ev.target.value;
                     (ev.target.parentNode).querySelector('.lili span').innerHTML = ev.target.value;
+                    // todoTitle[id_num].innerHTML = ev.target.value;
                     ev.target.style.display = "none";
                     (ev.target.parentNode).querySelector('.lili span').style.display = "inline";
+                    // synchro();
                 }
             })
 
@@ -161,6 +164,7 @@ show_all.onclick = function(){
     synchro();
     for(var i = 0; i < todoStorage.length; i++){
         todoStorage[i].style.display = "block";
+        // document.getElementById(i).style.display = "block";
     }
     count_active_completed();
 
@@ -208,7 +212,7 @@ function count_active_completed(){
     active_id_count = 0;
     completed_id_count = 0;
     for(var i = 0; i < todoStorage.length; i++){
-        if(todoStorage[i].title == ''){
+        if(todoStorage[i].deleted != false){
         }else{
             if(todoStorage[i].completed == false){
                 active_id_count++;
