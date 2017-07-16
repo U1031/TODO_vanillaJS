@@ -123,9 +123,12 @@ input_bar.onkeydown = function(){
                 if(ev.keyCode == 13){
                     todoStorage[ev.target.parentNode.id].title = ev.target.value;
                     (ev.target.parentNode).querySelector('.lili span').innerHTML = ev.target.value;
+
                     // todoTitle[id_num].innerHTML = ev.target.value;
+                    
                     ev.target.style.display = "none";
                     (ev.target.parentNode).querySelector('.lili span').style.display = "inline";
+
                     // synchro();
                 }
             })
