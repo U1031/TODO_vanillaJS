@@ -10,6 +10,21 @@ body {
 	-moz-font-smoothing: antialiased;
 	/*font-smoothing: antialiased;*/
 	font-weight: 300;
+    text-align: center;
+}
+body header{
+    /*text-align: center;*/
+
+	/*position: absolute;*/
+	/*top: 150px;*/
+	width: 100%;
+	font-size: 20px;
+	font-weight: 100;
+	text-align: center;
+	color: rgba(175, 47, 47, 0.15);
+	/*-webkit-text-rendering: optimizeLegibility;
+	-moz-text-rendering: optimizeLegibility;
+	text-rendering: optimizeLegibility;*/
 }
 
 .modify{
@@ -38,18 +53,27 @@ body {
 
 .main_todo{
     display: none;
+    text-align: left;
+    padding-left: 150px;
 }
 
 #all_click{
-    display: none;
+    visibility: hidden;
 }
 
 .btn_div{
     display: none;
+    
+}
+
+.in-line{
+    margin: 0;
+    padding: 0;
 }
 
 
 
+/*
 .in-line{
     text-align: center;
       width:350px;
@@ -58,9 +82,10 @@ body {
     }
 input{
     margin:0;
+    
 }
 input[type="text"]{
-    width:70%;
+    width:60%;
     height:100%;
     border:none;
     font-size:1em;
@@ -70,23 +95,22 @@ input[type="text"]{
     outline:none;
     box-sizing: border-box;
     color:black;
-    text-align: center;
+    text-align: left;
 }
 
 input[type=button]{
-    width: 30%;
+    width: 80%;
     height:100%;
-    background-color: lightgray;
     border:none;
     background-color: white;
     font-size:1em;
     color:#042AaC;
     outline:none;
     display:inline;
-    margin-left: -105px;
+    margin-left: -200px;
     margin-bottom:-39.6px;
     box-sizing: border-box;
-}
+}*/
 
 input[type=button]:hover{
     background-color: lightgray;

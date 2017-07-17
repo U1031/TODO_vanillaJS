@@ -200,11 +200,11 @@ function synchro(){
 //브라우져에 보여주고 안보여주고를 결정하는 Function
 function block_none(){
     if((active_id_count+completed_id_count) != 0){
-        all_click.style.display = "block";
+        all_click.style.visibility = "visible";
         btn_div.style.display = "block";
         main_todo.style.display = "block";
     }else if((active_id_count+completed_id_count) == 0){
-        all_click.style.display = "none";
+        all_click.style.visibility = "hidden";
         btn_div.style.display = "none";
         main_todo.style.display = "none";
     }
@@ -226,9 +226,9 @@ function count_active_completed(){
     }
     item_count.innerHTML = active_id_count + " items left";
     if(completed_id_count == 0){
-        clear_completed.style.display = "none";
+        clear_completed.style.visibility = "hidden";
     }else{
-        clear_completed.style.display = "block";
+        clear_completed.style.visibility = "visible";
     }
 }
 
