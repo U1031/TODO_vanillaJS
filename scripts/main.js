@@ -183,7 +183,7 @@ function synchro() {
 function block_none() {
     if (active_id_count + completed_id_count != 0) {
         all_click.style.visibility = "visible";
-        btn_div.style.display = "block";
+        btn_div.style.display = "inline-block";
         main_todo.style.display = "inline-block";
     } else if (active_id_count + completed_id_count == 0) {
         all_click.style.visibility = "hidden";
